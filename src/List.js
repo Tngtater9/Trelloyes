@@ -13,13 +13,13 @@ function List (props) {
         )
     })
     return (
-        <section>
-          <header class="List-header">
+        <section className="List">
+          <header className="List-header">
           <h2>{props.header}</h2>
           </header>
           <div className="List-cards">
             {cardList} 
-            <button type="button" class="List-add-button">
+            <button type="button" className="List-add-button">
               + Add Random Card
             </button>   
           </div>
