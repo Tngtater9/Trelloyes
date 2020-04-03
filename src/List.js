@@ -2,29 +2,35 @@ import React from 'react';
 import './List.css';
 import Card from './Card';
 
-function List (props) {
-    const cardList = props.cards.map(card => {
+class List extends React.Component {
+
+    render (){    
+    const cardList = this.props.cards.map(card => {
         return (
             <Card 
                 key={card.id}
+                id={card.id}
+                list={this.props.id}
                 title={card.title}
-                content={card.content}>
+                content={card.content}
+                deleteCard={this.props.deleteCard}>
             </Card>
         )
     })
-    return (
+   return (
         <section className="List">
           <header className="List-header">
-          <h2>{props.header}</h2>
+          <h2>{this.props.header}</h2>
           </header>
           <div className="List-cards">
             {cardList} 
-            <button type="button" className="List-add-button">
+            <button type="button" className="List-add-button" onClick={() => this.props.addRandom(this.props.id)}>
               + Add Random Card
             </button>   
           </div>
         </section>
     )
+  }
 }
 
 export default List;
